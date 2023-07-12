@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { PineconeClient } from "@pinecone-database/pinecone";
-import { queryPineconeVectorStoreAndQueryLLM } from "../../../utils";
+import { queryPineconeVectorStoreAndQueryLLM } from "../../../lib/llm-client";
 import { indexName } from "../../../config";
 
 export async function POST(req: NextRequest) {

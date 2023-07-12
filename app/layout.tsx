@@ -1,18 +1,16 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 export const metadata = {
-  title: "Cathy - A Chatbot for Main Street Renewal",
-  description: "Cathy is a chatbot that is trained on our MSR website data.",
+  title: "Ask Frank",
+  description: "Chatbot for Wilder World",
   openGraph: {
     images: [
       {
         url: "/cpk-8bit.png",
         width: 500,
         height: 500,
-        alt: "Cathy - A Chatbot for Main Street Renewal",
+        alt: "Frank Wilder",
       },
     ],
   },
@@ -25,7 +23,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className="min-h-screen">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

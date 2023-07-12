@@ -1,8 +1,7 @@
-# Langchain, Pinecone, and GPT with Next.js - Full Stack Starter
+# Wilder World Chat Bot
 
-This is a basic starter project for building with the following tools and APIs:
+## Run Forrest, Run
 
-- Next.js
-- LangchainJS
-- Pineceone Vector Database
-- GPT3
+1. copy .example.env.local and rename .env.local
+2. `pnpm install`
+3. `pnpm dev`
