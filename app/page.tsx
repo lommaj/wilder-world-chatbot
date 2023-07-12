@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { CallingCard } from "@/components/ui/calling-card";
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -52,7 +53,9 @@ export default function Home() {
   }
   return (
     <main className="flex flex-col items-center justify-between py-24 w-4/6 mx-auto max-w-md">
-      <div className="fixed top-0 left-0 z-30 w-full"></div>
+      <div className="fixed top-0 left-0 z-30 w-full">
+        <CallingCard />
+      </div>
       <form
         className="mb-3 pt-0 w-full items-center flex flex-col"
         onSubmit={sendQuery}
