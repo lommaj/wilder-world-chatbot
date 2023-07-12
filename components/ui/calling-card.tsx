@@ -12,7 +12,9 @@ export function CallingCard() {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Button variant="link">@torchTheMall</Button>
+        <Button className="w-32" variant="link">
+          @torchTheMall
+        </Button>
       </HoverCardTrigger>
       <HoverCardContent className="w-80">
         <div className="flex justify-between space-x-4">

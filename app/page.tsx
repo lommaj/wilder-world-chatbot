@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { CallingCard } from "@/components/ui/calling-card";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -52,39 +53,44 @@ export default function Home() {
     }
   }
   return (
-    <main className="flex flex-col items-center justify-between py-24 w-4/6 mx-auto max-w-md">
-      <div className="fixed top-0 left-0 z-30 w-full">
+    <div className="min-h-screen bg-dark-gradient dark:bg-light-gradient">
+      <div className="fixed left-0 z-30">
         <CallingCard />
       </div>
-      <form
-        className="mb-3 pt-0 w-full items-center flex flex-col"
-        onSubmit={sendQuery}
-      >
-        <div className="mb-3 pt-0 w-full items-center flex flex-col">
-          <div className="mx-auto">
-            <Image
-              src={imageSrc}
-              width={200}
-              height={200}
-              alt="Hi I am Frank"
+      <div className="fixed top-3 right-3 z-30">
+        <ThemeToggle />
+      </div>
+      <main className="flex flex-col items-center justify-between  w-4/6 mx-auto max-w-md">
+        <form
+          className="mb-3 pt-0 w-full items-center flex flex-col mt-24"
+          onSubmit={sendQuery}
+        >
+          <div className="mb-3 pt-0 w-full items-center flex flex-col">
+            <div className="mx-auto">
+              <Image
+                src={imageSrc}
+                width={200}
+                height={200}
+                alt="Hi I am Frank"
+              />
+            </div>
+
+            <input
+              type="text"
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Ask Frank a question."
+              className="px-3 py-4 placeholder-slate-300 text-slate-600 relative bg-white bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full"
             />
           </div>
-
-          <input
-            type="text"
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Ask Frank a question."
-            className="px-3 py-4 placeholder-slate-300 text-slate-600 relative bg-white bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full"
-          />
-        </div>
-        <Button type="submit">Ask Frank</Button>
-      </form>
-      {loading && <p>Asking Frank ...</p>}
-      {result && (
-        <div>
-          <Linkify>{result}</Linkify>
-        </div>
-      )}
-    </main>
+          <Button type="submit">Ask Frank</Button>
+        </form>
+        {loading && <p>Asking Frank ...</p>}
+        {result && (
+          <div>
+            <Linkify>{result}</Linkify>
+          </div>
+        )}
+      </main>
+    </div>
   );
 }
